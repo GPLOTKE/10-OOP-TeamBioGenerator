@@ -1,0 +1,26 @@
+{
+  "name": "10-oop-teambiogenerator",
+  "version": "1.0.0",
+  "description": "create a summary for each team member",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GPLOTKE/10-OOP-TeamBioGenerator.git"
+  },
+  "author": "Gerald Plotke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GPLOTKE/10-OOP-TeamBioGenerator/issues"
+  },
+  "homepage": "https://github.com/GPLOTKE/10-OOP-TeamBioGenerator#readme",
+  "dependencies": {
+    "jest": "^27.0.4"
+  }
+}
