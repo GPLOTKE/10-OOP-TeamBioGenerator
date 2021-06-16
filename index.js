@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 const fs = require('fs');
 
+const Employee = require('./Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
@@ -32,10 +33,41 @@ const generateHTML = (input) =>
 
 inquirer
     .prompt([{
-        type: 'input',
-        name: 'name',
-        message: 'What is your name?',
-    }, ])
+            type: 'input',
+            name: 'name',
+            message: 'Enter Name:',
+        },
+        {
+            type: 'list',
+            name: 'role',
+            message: 'Enter Role:',
+            choices: [
+                "Manager",
+                "Engineer",
+                "Intern",
+            ],
+        },
+        {
+            type: 'input',
+            name: 'ID',
+            message: 'Enter ID:',
+        },
+        {
+            type: 'input',
+            name: 'Email',
+            message: 'Enter Email Address:',
+        },
+        {
+            type: 'input',
+            name: 'GitHub',
+            message: 'Enter GitHub Username:',
+        },
+        {
+            type: 'input',
+            name: 'School',
+            message: 'Enter School Name:',
+        },
+    ])
     .then((input) => {
         const htmlPageContent = generateHTML(input);
 
