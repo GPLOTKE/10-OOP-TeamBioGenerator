@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 const fs = require('fs');
 
-const Employee = require('./Employee');
+const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
@@ -20,11 +20,13 @@ const generateHTML = (input) =>
   <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">My Team</h1>
-    <h3>${input.name} <span class="badge badge-secondary">${input.role}</span></h3>
+    <h3>${input.Name} <span class="badge badge-secondary">${input.Role}</span></h3>
     <ul class="list-group">
-      <li class="list-group-item">ID: ${input.id}</li>
-      <li class="list-group-item">Email: ${input.email}</li>
-      <li class="list-group-item">GitHub: ${input.github}</li>
+      <li class="list-group-item">ID: ${input.ID}</li>
+      <li class="list-group-item">Email: ${input.Email}</li>
+      <li class="list-group-item">GitHub: ${input.GitHub}</li>
+      <li class="list-group-item">GitHub: ${input.OfficeNumber}</li>
+      <li class="list-group-item">GitHub: ${input.School}</li>
     </ul>
   </div>
 </div>
@@ -34,12 +36,12 @@ const generateHTML = (input) =>
 inquirer
     .prompt([{
             type: 'input',
-            name: 'name',
+            name: 'Name',
             message: 'Enter Name:',
         },
         {
             type: 'list',
-            name: 'role',
+            name: 'Role',
             message: 'Enter Role:',
             choices: [
                 "Manager",
@@ -59,6 +61,11 @@ inquirer
         },
         {
             type: 'input',
+            name: 'OfficeNumber',
+            message: 'Enter Office Number:',
+        },
+        {
+            type: 'input',
             name: 'GitHub',
             message: 'Enter GitHub Username:',
         },
@@ -66,6 +73,16 @@ inquirer
             type: 'input',
             name: 'School',
             message: 'Enter School Name:',
+        },
+        {
+            type: 'list',
+            name: 'NewMember',
+            message: 'Enter Role:',
+            choices: [
+                "Manager",
+                "Engineer",
+                "Intern",
+            ],
         },
     ])
     .then((input) => {
